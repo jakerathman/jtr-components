@@ -13,7 +13,15 @@ const StyledFlexBox = styled.div`
 
 const FlexBox = ({ children, flexDirection, flexWrap, height, width, justifyContent, alignItems, style }) => {
 	return (
-		<StyledFlexBox flexDirection={flexDirection} flexWrap={flexWrap} height={height} width={width} justifyContent={justifyContent} alignItems={alignItems} style={style}>
+		<StyledFlexBox
+			flexDirection={flexDirection}
+			flexWrap={flexWrap}
+			height={height}
+			width={width}
+			justifyContent={justifyContent}
+			alignItems={alignItems}
+			style={style}
+		>
 			{children}
 		</StyledFlexBox>
 	);

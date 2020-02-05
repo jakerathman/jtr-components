@@ -13,6 +13,18 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "jakerathman.jtr-components/element@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/nms-companion/Element.js",
+                "test": false,
+                "name": "Element.js"
+            }
+        ],
+        "mainFile": "src/components/nms-companion/Element.js",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "jakerathman.jtr-components/expand-collapse@0.1.1": {
         "files": [
             {
@@ -37,5 +49,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.7.2"
+    "version": "14.7.3"
 }
