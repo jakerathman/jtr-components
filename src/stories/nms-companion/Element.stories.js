@@ -1,15 +1,10 @@
 import React from "react";
-import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import Element from "../components/nms-companion/Element";
-import FlexBox from "../components/FlexBox";
+import Element from "../../components/nms-companion/Element";
+import FlexBox from "../../components/common/FlexBox";
 
 export default {
-	title: "components/NMS Companion/Element",
-	component: Element,
-	decorators: [withKnobs],
-	parameters: {
-		componentSubtitle: "Interactive Documentation"
-	}
+	title: "Library/NMS Companion/Element",
+	component: Element
 };
 
 const carbonProps = {

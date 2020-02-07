@@ -19,12 +19,13 @@ const ExpandCollapseWrapper = styled.div`
 const ExpandCollapseButton = styled.button`
 	margin: 8px;
 	background: white;
-	border: 3px black solid;
-	border-radius: 5px;
+	border: none;
+	border-bottom: 3px black solid;
 	padding: 8px;
 	margin-top: 16px;
 	margin-bottom: 0px;
 	width: fit-content;
+	font-weight: 600;
 `;
 /**
  * 

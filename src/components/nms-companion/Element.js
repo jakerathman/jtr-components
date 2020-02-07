@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FlexBox from "../FlexBox";
+import FlexBox from "../common/FlexBox";
 import styled from "styled-components";
 
 const ElementText = styled.div`
@@ -13,25 +13,29 @@ const ElementImage = styled.img`
 
 /**
  * No Man's Sky Element. See stories for code examples with property details.
+ *
+ * See live application here: http://nms-companion-66697.web.app/
  */
-const Element = ({ name, imageUri, abbrev, group, rarity, units, visible, amount, showDetails }) => {
+const Element = ({ name, imageUri, abbrev, group, rarity, units, visible, amount, showDetails, clickHandler }) => {
 	return visible ? (
-		<FlexBox
-			flexDirection={"column"}
-			style={{ background: "white", border: "2px solid black", padding: "8px", borderRadius: "3px" }}
-		>
-			{amount ? <ElementText style={{ fontWeight: "600", fontSize: "1em" }}>{amount}</ElementText> : null}
-			<ElementText style={{ fontWeight: "600" }}>{name}</ElementText>
-			<ElementImage src={imageUri}></ElementImage>
-			{showDetails ? (
-				<>
-					<ElementText style={{ fontWeight: "600" }}>{abbrev}</ElementText>
-					<ElementText>{`Group: ${group}`}</ElementText>
-					<ElementText>{`Rarity: ${rarity}`}</ElementText>
-					<ElementText>{`Units: ${units}`}</ElementText>
-				</>
-			) : null}
-		</FlexBox>
+		<div onClick={clickHandler}>
+			<FlexBox
+				flexDirection={"column"}
+				style={{ background: "white", border: "2px solid black", padding: "8px", borderRadius: "3px" }}
+			>
+				{amount ? <ElementText style={{ fontWeight: "600", fontSize: "1em" }}>{amount}</ElementText> : null}
+				<ElementText style={{ fontWeight: "600" }}>{name}</ElementText>
+				<ElementImage src={imageUri}></ElementImage>
+				{showDetails ? (
+					<>
+						<ElementText style={{ fontWeight: "600" }}>{abbrev}</ElementText>
+						<ElementText>{`Group: ${group}`}</ElementText>
+						<ElementText>{`Rarity: ${rarity}`}</ElementText>
+						<ElementText>{`Units: ${units}`}</ElementText>
+					</>
+				) : null}
+			</FlexBox>
+		</div>
 	) : null;
 };
 
@@ -51,5 +55,6 @@ Element.propTypes = {
 	units: PropTypes.string.isRequired,
 	visible: PropTypes.bool,
 	amount: PropTypes.string,
-	showDetails: PropTypes.bool
+	showDetails: PropTypes.bool,
+	clickHandler: PropTypes.func
 };

@@ -28,7 +28,7 @@ const FlexBox = ({ children, flexDirection, flexWrap, height, width, justifyCont
 };
 
 FlexBox.propTypes = {
-	children: PropTypes.object,
+	children: PropTypes.element,
 	flexDirection: PropTypes.string,
 	flexWrap: PropTypes.string,
 	height: PropTypes.string,

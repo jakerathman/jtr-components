@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FlexBox from "../FlexBox";
+import FlexBox from "../common/FlexBox";
 import styled from "styled-components";
 const ElementText = styled.div`
 	font-size: 0.75em;
@@ -11,6 +11,8 @@ const ElementImage = styled.img`
 `;
 /**
  * No Man's Sky Element. See stories for code examples with property details.
+ *
+ * See live application here: http://nms-companion-66697.web.app/
  */
 
 const Element = ({
@@ -22,9 +24,12 @@ const Element = ({
   units,
   visible,
   amount,
-  showDetails
+  showDetails,
+  clickHandler
 }) => {
-  return visible ? React.createElement(FlexBox, {
+  return visible ? React.createElement("div", {
+    onClick: clickHandler
+  }, React.createElement(FlexBox, {
     flexDirection: "column",
     style: {
       background: "white",
@@ -47,7 +52,7 @@ const Element = ({
     style: {
       fontWeight: "600"
     }
-  }, abbrev), React.createElement(ElementText, null, `Group: ${group}`), React.createElement(ElementText, null, `Rarity: ${rarity}`), React.createElement(ElementText, null, `Units: ${units}`)) : null) : null;
+  }, abbrev), React.createElement(ElementText, null, `Group: ${group}`), React.createElement(ElementText, null, `Rarity: ${rarity}`), React.createElement(ElementText, null, `Units: ${units}`)) : null)) : null;
 };
 
 export default Element;
@@ -64,5 +69,6 @@ Element.propTypes = {
   units: PropTypes.string.isRequired,
   visible: PropTypes.bool,
   amount: PropTypes.string,
-  showDetails: PropTypes.bool
+  showDetails: PropTypes.bool,
+  clickHandler: PropTypes.func
 };
