@@ -21,7 +21,7 @@ const ExpandCollapseWrapper = styled.div`
 			  `}
 	transform-origin: top;
 	transition: all 250ms ease-in-out;
-	padding-left: 32px;
+	padding-left: ${props => props.indent ? "32px" : "none"};
 `;
 
 const ExpandCollapseButton = styled.button`
@@ -40,7 +40,7 @@ const ExpandCollapseButton = styled.button`
  * 
  * Wrap your components in `ExpandCollapse` to quickly provide visibility toggle functionality to your components. 
  */
-const ExpandCollapse = ({ children, showContentProp, expandedText, collapsedText }) => {
+const ExpandCollapse = ({ children, showContentProp, expandedText, collapsedText, indent, style }) => {
 	const [showContent, setShowContent] = useState(showContentProp);
 
 	const toggleShowContent = toggle => {
@@ -60,11 +60,11 @@ const ExpandCollapse = ({ children, showContentProp, expandedText, collapsedText
 	};
 
 	return (
-		<div>
+		<div style={style}>
 			<ExpandCollapseButton type='button' onClick={handleClick}>
 				{showContent ? expandedText : collapsedText}
 			</ExpandCollapseButton>
-			<ExpandCollapseWrapper triggerHeight={showContent} triggerTransform={showContent}>
+			<ExpandCollapseWrapper indent={indent} triggerHeight={showContent} triggerTransform={showContent}>
 				{children}
 			</ExpandCollapseWrapper>
 		</div>

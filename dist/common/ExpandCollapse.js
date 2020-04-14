@@ -14,7 +14,7 @@ const ExpandCollapseWrapper = styled.div`
 			  `}
 	transform-origin: top;
 	transition: all 250ms ease-in-out;
-	padding-left: 32px;
+	padding-left: ${props => props.indent ? "32px" : "none"};
 `;
 const ExpandCollapseButton = styled.button`
 	margin: 8px;
@@ -36,7 +36,9 @@ const ExpandCollapse = ({
   children,
   showContentProp,
   expandedText,
-  collapsedText
+  collapsedText,
+  indent,
+  style
 }) => {
   const [showContent, setShowContent] = useState(showContentProp);
 
@@ -56,10 +58,13 @@ const ExpandCollapse = ({
     toggleShowContent(showContent);
   };
 
-  return React.createElement("div", null, React.createElement(ExpandCollapseButton, {
+  return React.createElement("div", {
+    style: style
+  }, React.createElement(ExpandCollapseButton, {
     type: "button",
     onClick: handleClick
   }, showContent ? expandedText : collapsedText), React.createElement(ExpandCollapseWrapper, {
+    indent: indent,
     triggerHeight: showContent,
     triggerTransform: showContent
   }, children));
